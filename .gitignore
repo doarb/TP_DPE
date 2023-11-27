@@ -1,0 +1,17 @@
+# Dossiers générés par Node.js
+node_modules/
+
+# Fichiers générés par des outils de construction
+dist/
+build/
+*.log
+
+# Fichiers spécifiques à l'environnement de développement
+.env
+server.log
+
+# Fichiers de configuration locaux
+config.json
+
+# Fichiers de dépendances de package managers
+package-lock.json
