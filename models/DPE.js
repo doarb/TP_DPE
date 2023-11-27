@@ -13,4 +13,4 @@ const DPESchema = new mongoose.Schema({
     "Code_postal_(BAN)": Number
 });
 
-module.exports = mongoose.model('dpe', DPESchema);
+module.exports = mongoose.model('depmini72', DPESchema);

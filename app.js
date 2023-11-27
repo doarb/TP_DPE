@@ -32,7 +32,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-
+/**
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 const key1 = crypto.randomBytes(64).toString('hex');
 const key2 = crypto.randomBytes(64).toString('hex');
@@ -53,6 +53,7 @@ app.use(sessionCookie({
     expires: expiryDate
   }
 }));
+*/
 debugApp("Use session");
 
 // Middleware pour parser le corps de la requête en JSON
@@ -65,7 +66,7 @@ const router = require('./api/routes/index');
 //connect to database
 const mongoDB = require('./loaders/mongoDB');
 
-app.use(router);
+app.use("/api/v1",router);
 
 debugApp('Starting the application');
 // Start the server
