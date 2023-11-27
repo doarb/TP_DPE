@@ -9,7 +9,7 @@ Une brève description de ce que fait votre projet.
 Instructions sur comment installer et configurer votre projet.
 
 ```bash
-git clone https://github.com/doarb/TP_DPE
+git clone https://github.com/doarb/TP_DPE.git
 cd TP_DPE
 npm install
 ```
