@@ -15,16 +15,15 @@ const login = async (req, res, next) => {
         });
     }
 
-    if(!UserServices.authenticate(req.body.password, user)){
+    if(!UserServices.authenticate(user.email,req.body.password)){
         debugLogin('invalid password');
         return res.status(401).json({
             message: "invalid credentials"
         });
     }
-
-    const accessToken = Services.generateAccessToken(user);
+    const accessToken = Services.generateAccessToken(user.element);
     debugLogin('access token generated');
-    const refreshToken = Services.generateRefreshToken(user);
+    const refreshToken = Services.generateRefreshToken(user.element);
     debugLogin('refresh token generated');
     debugLogin('end login');
     return res.status(200).json({
@@ -51,7 +50,7 @@ const refreshToken = async (req, res, next) => {
       }
       
 
-      const refreshedToken = Services.generateAccessToken(user);
+      const refreshedToken = Services.generateAccessToken(user.element);
       debugRefreshToken('end refreshToken');
       res.send({
         accessToken: refreshedToken,

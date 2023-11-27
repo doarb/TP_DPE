@@ -1,4 +1,3 @@
-const users = require('../models/users');
 const User = require('../models/users');
 const config = require('../config/index').config;
 const debugUser = require('debug')(config.name +':services:users');
@@ -49,7 +48,7 @@ const authenticate = async (email, password) => {
     try {
       debugUser("comparePassword");
       debugUser("email " + email);
-      const user = await users.findOne({ email: email });
+      const user = await User.findOne({ email: email });
 
       if (!user) {
         debugUser("user not found");
