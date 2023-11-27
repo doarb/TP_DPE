@@ -19,7 +19,10 @@ const sessionCookie = require('cookie-session');
 const crypto = require('crypto');
 
 app.use(helmet());
+debugApp("Use helmet");
+
 app.disable('x-powered-by');
+debugApp("Disable x-powered-by");
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -50,19 +53,34 @@ app.use(sessionCookie({
     expires: expiryDate
   }
 }));
+debugApp("Use session");
 
+// Middleware pour parser le corps de la requête en JSON
+app.use(express.json());
+debugApp("Use express.json()");
 
 //Routing options
 const router = require('./api/routes/index');
 
 //connect to database
-const mongoDB = require('../loaders/mongoDB');
+const mongoDB = require('./loaders/mongoDB');
 
 app.use(router);
 
 debugApp('Starting the application');
 // Start the server
-app.listen(port, () => {
-  debug('Listening on port ' + port);
+
+
+mongoDB.connectToDatabase().then(() => {
+  debugApp('Connected to database');
+
+  app.listen(port, () => {
+    debug('Listening on port ' + port);
+  });
+  debugApp('Server started on port ' + port);
+
+}).catch((error) => {
+  debugApp('Error connecting to database');
+  debugApp(error);
 });
-debugApp('Server started on port ' + port);
+
