@@ -6,7 +6,9 @@ const config = {
   name: process.env.APP_NAME,
   debug: process.env.DEBUG,
   secretExpress: process.env.EXPRESSSECRET,
-  host : process.env.HOST
+  host : process.env.HOST,
+  accessToken: process.env.ACCESS_TOKEN_SECRET,
+  refershToken: process.env.REFRESH_TOKEN_SECRET
 }
 
 const mongo = {
