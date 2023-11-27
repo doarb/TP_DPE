@@ -1,4 +1,4 @@
-# Nom du Projet
+# DPE
 
 ## Description
 
@@ -9,18 +9,16 @@ Une brève description de ce que fait votre projet.
 Instructions sur comment installer et configurer votre projet.
 
 ```bash
-git clone https://github.com/doarb/votreprojet.git
-cd votreprojet
+git clone https://github.com/doarb/TP_DPE
+cd TP_DPE
 npm install
 ```
 
 ## Utilisation
 ### Start
-Les logs sont sauvegardés dans le fichier [votreprojet].log
+Les logs sont sauvegardés dans le fichier [server].log
 ```bash
 npm start
 ```
 
-## Licence
-Informations sur la licence.
 

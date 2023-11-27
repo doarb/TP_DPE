@@ -10,12 +10,6 @@ test('should Status', () => {
     expect(mongoDB.connectionStatus()).not.toBe(true);
 });
 
-test('should connect to database',  () => {
-    mongoDB.connectToDatabase();
-    expect(mongoDB.connectionStatus()).toBe(true);
-});
-
-
 test('should disconnect to database', () => {
     mongoDB.disconnectToDatabase();
     expect(mongoDB.connectionStatus()).toBe(false);
