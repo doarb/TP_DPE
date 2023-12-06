@@ -1,4 +1,3 @@
-const users = require("../../models/dpe");
 const config = require("../../config/index").config;
 const dpeService = require("../../services/dpe");
 const debug = require("debug")(config.name + ":api:dpe");
