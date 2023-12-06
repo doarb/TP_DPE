@@ -61,7 +61,7 @@ const authenticate = async (email, password) => {
 
     if (!passwordMatch) {
       debugUser("password incorrect");
-      return Promise.reject(new Error("Password incorrect"));
+      return Promise.reject(new Error("Email or Password incorrect"));
     }
 
     debugUser("password correct");
