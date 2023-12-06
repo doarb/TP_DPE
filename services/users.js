@@ -43,6 +43,20 @@ const createUser = async (user) => {
   }
 };
 
+const deleteUser = async (email) => {
+  try {
+    debugUser("Deleting user");
+    debugUser("email " + email);
+    const results = await User.deleteOne({ email: email });
+    debugUser("results ", results);
+    return results;
+  } catch (error) {
+    // Log or handle the error as needed
+    console.error(error);
+    return { error: "Error while deleting user" };
+  }
+};
+
 const authenticate = async (email, password) => {
   try {
     debugUser("comparePassword");
@@ -68,9 +82,7 @@ const authenticate = async (email, password) => {
     debugUser("user comparePassword end");
     return user;
   } catch (error) {
-    // Log or handle the error as needed
-    console.error(error);
-    return undefined;
+    return { error: "Error while authenticating user" };
   }
 };
 
@@ -82,6 +94,7 @@ async function hashPassword(password) {
 
 module.exports = {
   getUser,
+  deleteUser,
   createUser,
   authenticate,
 };

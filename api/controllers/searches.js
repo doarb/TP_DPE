@@ -2,11 +2,11 @@ const config = require("../../config/index").config;
 const searchesService = require("../../services/searches");
 const debug = require("debug")(config.name + ":api:searches");
 
+//fais moi le commentaire
+
 const saveAll = async (req, res, next) => {
   debug("start saveAll");
-
   let user = req.user;
-
   try {
     let result = await searchesService.saveAll(user);
     debug("end saveAll");
@@ -15,6 +15,7 @@ const saveAll = async (req, res, next) => {
     return res.status(400).json({ message: error.message });
   }
 };
+
 
 const deleteSearch = (req, res) => {
   debug("start deleteSearch");
